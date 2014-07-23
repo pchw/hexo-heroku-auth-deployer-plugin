@@ -58,6 +58,12 @@
           });
         }), next);
       }, function(next) {
+        var ignorePath, ignores;
+        ignorePath = path.join(baseDir, ".gitignore");
+        ignores = [".DS_Store", "Thumbs.db", "db.json", "debug.log", "node_modules/", ".deploy/"];
+        console.log(ignorePath);
+        return file.writeFile(ignorePath, ignores.join('\n'), next);
+      }, function(next) {
         var defaultPackage, packagePath;
         packagePath = path.join(baseDir, "package.json");
         defaultPackage = JSON.stringify({
