@@ -1,0 +1,19 @@
+{
+  "name": "hexo-heroku-auth-deployer-plugin",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo"
+  ],
+  "author": "pchw",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "graceful-fs": "^3.0.2",
+    "colors": "^0.6.2"
+  }
+}
