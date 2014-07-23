@@ -63,6 +63,7 @@ hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
         "node_modules/"
         ".deploy/"
       ]
+      console.log ignorePath
       file.writeFile ignorePath, ignores.join('\n'), next
     (next) ->
       packagePath = path.join(baseDir, "package.json")
