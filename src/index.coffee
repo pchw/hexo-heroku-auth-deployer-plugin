@@ -119,7 +119,7 @@ hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
         [
           "push"
           "-u"
-          "heroku"
+          url
           "#{branch}:master"
           "--force"
         ]

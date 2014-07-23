@@ -120,7 +120,7 @@
           return callback();
         }
         branch = args.branch || config.branch || "master";
-        commands = [["add", "-A", "."], ["commit", "-m", "Site updated"], ["push", "-u", "heroku", "" + branch + ":master", "--force"]];
+        commands = [["add", "-A", "."], ["commit", "-m", "Site updated"], ["push", "-u", url, "" + branch + ":master", "--force"]];
         return async.eachSeries(commands, (function(item, next) {
           return run("git", item, function() {
             return next();
