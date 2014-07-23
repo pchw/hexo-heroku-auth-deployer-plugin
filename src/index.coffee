@@ -54,6 +54,17 @@ hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
 
       ), next
     (next) ->
+      ignorePath = path.join(baseDir, ".gitignore")
+      ignores = [
+        ".DS_Store"
+        "Thumbs.db"
+        "db.json"
+        "debug.log"
+        "node_modules/"
+        ".deploy/"
+      ]
+      file.writeFile ignorePath, ignores.join('\n'), next
+    (next) ->
       packagePath = path.join(baseDir, "package.json")
       defaultPackage = JSON.stringify(
         name: "hexo"
