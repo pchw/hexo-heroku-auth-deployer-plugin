@@ -104,6 +104,7 @@ hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
 
     (next) ->
       return callback()  if args.setup
+      branch = args.branch or config.branch or "master"
       commands = [
         [
           "add"
@@ -119,7 +120,7 @@ hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
           "push"
           "-u"
           "heroku"
-          (config.branch or "master") + ":master"
+          "#{branch}:master"
           "--force"
         ]
       ]

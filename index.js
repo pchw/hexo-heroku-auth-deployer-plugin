@@ -115,11 +115,12 @@
           }), next);
         });
       }, function(next) {
-        var commands;
+        var branch, commands;
         if (args.setup) {
           return callback();
         }
-        commands = [["add", "-A", "."], ["commit", "-m", "Site updated"], ["push", "-u", "heroku", (config.branch || "master") + ":master", "--force"]];
+        branch = args.branch || config.branch || "master";
+        commands = [["add", "-A", "."], ["commit", "-m", "Site updated"], ["push", "-u", "heroku", "" + branch + ":master", "--force"]];
         return async.eachSeries(commands, (function(item, next) {
           return run("git", item, function() {
             return next();
