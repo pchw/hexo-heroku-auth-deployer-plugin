@@ -3,8 +3,7 @@ fs = require("graceful-fs")
 path = require("path")
 colors = require("colors")
 spawn = require("child_process").spawn
-util = hexo.util
-file = util.file2
+file = require("hexo-fs")
 config = hexo.config.deploy
 
 hexo.extend.deployer.register 'heroku-auth', (args, callback) ->
